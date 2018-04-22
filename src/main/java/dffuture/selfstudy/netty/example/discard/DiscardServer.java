@@ -18,9 +18,12 @@ public class DiscardServer {
     }
 
     public void run() throws  Exception{
+        // 用来接受一个传入的连接
         EventLoopGroup bossGroup = new NioEventLoopGroup();
+        // 处理连接后的流量
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
+            // 设置服务器的辅助类
             ServerBootstrap b = new ServerBootstrap();
             b.group(bossGroup, workerGroup)
                     .channel(NioServerSocketChannel.class)
